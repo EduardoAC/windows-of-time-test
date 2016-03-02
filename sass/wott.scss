@@ -1,2 +1,22 @@
 @import "bootstrap";
 @import "_spinner-animation.scss";
+
+$border-body: #E6E6E6;
+.wott{
+    border-left: 15px solid $border-body;
+    border-right: 15px solid $border-body;
+
+    .menu-wott{
+        padding: 10px 0;
+        border-bottom: 1px solid $border-body;
+        clear: both;
+        h1{
+            float: left;
+            margin: 0 20px 0 0;
+        } 
+        .btn{
+            height: 32px;
+            margin: 5px 5px 0 5px;
+        }
+    } 
+}
