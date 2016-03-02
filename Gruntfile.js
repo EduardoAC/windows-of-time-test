@@ -27,7 +27,7 @@ module.exports = function (grunt) {
                     loadPath: 'node_modules/bootstrap-sass/assets/stylesheets'
                 },
                 files: {
-                    'dist/css/mystyle.css': 'sass/wott.scss'
+                    'dist/css/wott.css': 'sass/wott.scss'
                 }
             }
         },
@@ -37,10 +37,40 @@ module.exports = function (grunt) {
                 files: 'sass/*.scss',
                 tasks: ['sass:dev']
             }
+        },
+        concat: {
+            options: {
+              separator: ';'
+            },
+            dist: {
+              src: ['js/*.js'],
+              dest: 'dist/js/wott.js'
+            }
+        },
+        htmlmin: {
+            dist: {
+              options: {
+                removeComments: true,
+                collapseWhitespace: true
+              },
+              files: {
+                'dist/index.html': 'public_html/index.html'
+              }
+            },
+            dev: {
+              files: {
+                'dist/index.html': 'public_html/index.html',
+              }
+            }
         }
     });
+    
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-htmlmin');
+    
     grunt.registerTask('default',['watch']);
     grunt.registerTask('buildcss', ['sass:dist']);
+    grunt.registerTask('build',['sass:dist','concat','htmlmin']);
 };
