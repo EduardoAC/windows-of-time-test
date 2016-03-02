@@ -62,15 +62,24 @@ module.exports = function (grunt) {
                 'dist/index.html': 'public_html/index.html',
               }
             }
-        }
+        },
+        copy: {
+            main: {
+                files: [
+                    // includes files within path and its sub-directories
+                    {expand: true, src: ['data/**'], dest: 'dist/', isFile: true},
+                  ],
+            },
+        },
     });
     
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     
     grunt.registerTask('default',['watch']);
     grunt.registerTask('buildcss', ['sass:dist']);
-    grunt.registerTask('build',['sass:dist','concat','htmlmin']);
+    grunt.registerTask('build',['sass:dist','concat','htmlmin','copy']);
 };
