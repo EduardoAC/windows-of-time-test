@@ -1,0 +1,17 @@
+{
+  "name": "WindowOfTimeTest",
+  "version": "1.0.0",
+  "keywords": [
+    "util",
+    "functional",
+    "server",
+    "client",
+    "browser"
+  ],
+  "author": "EduardoAC <Eduardo Aparicio Cardenes at Dream Maker Factory>",
+  "contributors": [],
+  "dependencies": {},
+  "devDependencies": {
+    "bootstrap-sass": "^3.3.6"
+  }
+}
