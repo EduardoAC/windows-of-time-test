@@ -1,0 +1,6 @@
+#ignore IDE project folder
+nbproject/
+#ignore packages we will load by node
+node_modules/
+#ignore sass cache
+.sass-cache/
