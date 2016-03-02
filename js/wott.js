@@ -38,6 +38,10 @@ var initializeWott = function () {
     writeJSON('server.php',jsonObject, function(response){
        console.log(response); 
     });
+    
+    document.getElementById("form-wott").addEventListener('change', function(event){
+        console.log(event.target);
+    });
 };
 
 window.onload = initializeWott;
