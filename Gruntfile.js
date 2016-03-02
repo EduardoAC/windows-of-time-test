@@ -68,6 +68,8 @@ module.exports = function (grunt) {
                 files: [
                     // includes files within path and its sub-directories
                     {expand: true, src: ['data/**'], dest: 'dist/', isFile: true},
+                    
+                    {expand: false, src: ['public_html/server.php'], dest: 'dist/server.php', isFile: true}
                   ],
             },
         },
