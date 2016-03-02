@@ -12,6 +12,7 @@
   "contributors": [],
   "dependencies": {
     "grunt-contrib-concat": "^1.0.0",
+    "grunt-contrib-copy": "^0.8.2",
     "grunt-contrib-htmlmin": "^0.6.0",
     "grunt-contrib-jshint": "^1.0.0"
   },
