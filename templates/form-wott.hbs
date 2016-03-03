@@ -1,0 +1,17 @@
+<div class="form-wott" id="form-wott-template">
+    <div class="form-inline">
+        <div class="form-group">
+            <p>Window name</p>
+            <input type="text" class="form-control name" id="wn-{{index}}" {{#if name}}value="{{name}}"{{/if}} placeholder="Introduce text">
+        </div>
+        <div class="form-group">
+            <p>Start date</p>
+            <input type="date" class="form-control sdate" id="wsd-{{index}}"  {{#if sdate}}value="{{sdate}}{{/if}}">
+        </div>
+        <div class="form-group">
+            <p>End date</p>
+            <input type="date" class="form-control edate" id="wsd-{{index}}"  {{#if edate}}value="{{edate}}{{/if}}">
+        </div>
+        <div class="remove-wott btn btn-danger">X</div>
+    </div>
+</div>
