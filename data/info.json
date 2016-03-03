@@ -1,2 +1,5 @@
 [
+    {"name":"dummyData1","sdate":1457481600000,"edate":1458000000000},
+    {"name":"dummyData2","sdate":1457654400000,"edate":1457740800000},
+    {"name":"Dummy2","sdate":1457049600000,"edate":1459382400000}
 ]
