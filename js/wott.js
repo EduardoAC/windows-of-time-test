@@ -29,7 +29,7 @@ var writeJSON = function (path, data, callback) {
     xobj.send('json=' + encoded);
 };
 
-var save = function(){
+var save = function () {
     clearTimeout(updateServerData);
     updateServerData = setTimeout(function () {
         writeJSON('server.php', temporaryData, function (response) {
@@ -71,14 +71,23 @@ var createViewResult = function (wottData) {
     wottData['color'] = '#' + letters[Math.floor(Math.random() * letters.length)];
     return viewTemplate(wottData);
 };
-var removeWott = function(id){
-    var hpb   = document.getElementById('hpb-' + id);
-    var pb    = document.getElementById('pb-' + id).parentNode; //Progres bar is a group of two items
-    var fwott = document.getElementById('form-wott-' + id);
+var fixIdForm = function (id, newTotal) {
+    for (var i = id + 1; i <= newTotal; i++) {
+        document.getElementById("form_wott-" + i).id = "form_wott-" + (i - 1);
+        document.getElementById("hpb-" + i).id = "hpb-" + (i - 1);
+        document.getElementById("pb-" + i).id = "pb-" + (i - 1);
+    }
+};
+var removeWott = function (fwott) {
+    var cplxId = fwott.id.split('-');
+    var id = parseInt(cplxId[1]);
+    var hpb = document.getElementById("hpb-" + id);
+    var pb = document.getElementById("pb-" + id).parentNode; //Progres bar is a group of two items
     pb.parentNode.removeChild(pb);
     hpb.parentNode.removeChild(hpb);
     fwott.parentNode.removeChild(fwott);
-    temporaryData.slice(id,1);
+    temporaryData.splice(id, 1);
+    fixIdForm(id, temporaryData.length);
     save();
 };
 var render = function (arrayOfWott) {
@@ -95,11 +104,15 @@ var render = function (arrayOfWott) {
 
     document.getElementById("form-collection").insertAdjacentHTML('beforeend', htmlForms);
     document.getElementById("view-results").insertAdjacentHTML('beforeend', htmlViewResults);
-    
+
     var removeButtons = document.getElementById("form-collection").querySelectorAll(".remove-wott");
     length = removeButtons.length;
-    for(var j = 0; j < length; j++){
-        removeButtons[j].addEventListener('click',removeWott.bind( null, j));
+
+    for (var j = 0; j < length; j++) {
+        removeButtons[j].addEventListener('click', function (event) {
+            var formDOM = event.target.parentNode.parentNode;
+            removeWott(formDOM);
+        });
     }
 };
 
@@ -152,9 +165,12 @@ domReady(function () {
         item['index'] = index;
         document.getElementById("form-collection").insertAdjacentHTML('beforeend', createForm(item));
         document.getElementById("view-results").insertAdjacentHTML('beforeend', createViewResult(item));
-        document.getElementById("form-wott-"+index)
+        document.getElementById("form_wott-" + index)
                 .querySelector(".remove-wott")
-                .addEventListener('click',removeWott.bind( null, index));
+                .addEventListener('click', function (event) {
+                    var formDOM = event.target.parentNode.parentNode;
+                    removeWott(formDOM);
+                });
         save();
     });
 });
