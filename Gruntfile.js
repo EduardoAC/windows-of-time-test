@@ -73,6 +73,13 @@ module.exports = function (grunt) {
                   ],
             },
         },
+        handlebars: {
+            all: {
+                files: {
+                    "js/templates.js": ["templates/*.hbs"]
+                }
+            }
+        }
     });
     
     grunt.loadNpmTasks('grunt-contrib-sass');
@@ -80,8 +87,9 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
+    grunt.loadNpmTasks('grunt-contrib-handlebars');
     
     grunt.registerTask('default',['watch']);
     grunt.registerTask('buildcss', ['sass:dist']);
-    grunt.registerTask('build',['sass:dist','concat','htmlmin','copy']);
+    grunt.registerTask('build',['sass:dist','handlebars','concat','htmlmin','copy']);
 };

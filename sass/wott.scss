@@ -1,14 +1,34 @@
 @import "bootstrap";
 @import "_spinner-animation.scss";
 
-$border-body: #E6E6E6;
+$gray-light: #E6E6E6;
+$gray-light2: #CDCDCD;
+$gray-mid : #989898;
+$text-color: #000;
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+@mixin split-panel($color){
+    border-bottom: 1px solid $color;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+@mixin trasition($time){
+    -webkit-transition: width $time ease;
+    -o-transition: width $time ease;
+    transition: width $time ease;
+}
 .wott{
-    border-left: 15px solid $border-body;
-    border-right: 15px solid $border-body;
+    border-left: 15px solid $gray-light;
+    border-right: 15px solid $gray-light;
+    padding: 0 20px;
 
     .menu-wott{
         padding: 10px 0;
-        border-bottom: 1px solid $border-body;
+        @include split-panel($gray-light2);
         clear: both;
         h1{
             float: left;
@@ -19,4 +39,41 @@ $border-body: #E6E6E6;
             margin: 5px 5px 0 5px;
         }
     } 
+    .wott-windows{
+        @include split-panel($gray-light2);
+    }
+    .form-wott{
+        margin-top: 15px;
+        p{
+            margin: 0 0 5px 5px;
+            color: $gray-mid;
+        }
+        input{
+            color: $text-color;
+            width: 250px;
+            border-color: $gray-light2;
+            margin-right: 15px;
+        }
+        .remove-wott{
+            @include border-radius(15px);
+            text-align: center;
+            line-height: 18px;
+            padding: 6px 0;
+            margin-top: 20px;
+            font-weight: lighter;
+            font-size: 18px;
+            width: 30px;
+            height: 30px;
+        }
+    }
+    .view-results{
+        margin-bottom: 50px;
+        .progress{
+            background: none;
+            border-radius: 0px;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+        
+    }
 }
