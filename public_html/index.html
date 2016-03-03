@@ -12,10 +12,10 @@
             <section class="menu-wott">
                 <h1>Windows generator</h1>
                 <button class="btn btn-success">Add window</button>
-                <button class="btn btn-info">Get data</button>
+                <button class="btn btn-primary">Get data</button>
             </section>
             <section class="wott-windows">
-                <div class="sk-cube-grid">
+                <div class="sk-cube-grid hidden">
                     <div class="sk-cube sk-cube1"></div>
                     <div class="sk-cube sk-cube2"></div>
                     <div class="sk-cube sk-cube3"></div>
@@ -26,7 +26,7 @@
                     <div class="sk-cube sk-cube8"></div>
                     <div class="sk-cube sk-cube9"></div>
                 </div>
-                <div class="form-wott" id="form-wott">
+                <div class="form-wott" id="form-wott-1">
                     <div class="form-inline">
                         <div class="form-group">
                             <p>Window name</p>
@@ -40,12 +40,43 @@
                             <p>End date</p>
                             <input type="date" class="form-control" id="wsd-1">
                         </div>
-                        <div class="remove-wott btn btn-default">X</div>
+                        <div class="remove-wott btn btn-danger">X</div>
+                    </div>
+                </div>
+                <div class="form-wott" id="form-wott-2">
+                    <div class="form-inline">
+                        <div class="form-group">
+                            <p>Window name</p>
+                            <input type="text" class="form-control" id="wn-1" placeholder="Introduce text">
+                        </div>
+                        <div class="form-group">
+                            <p>Start date</p>
+                            <input type="date" class="form-control" id="wsd-1">
+                        </div>
+                        <div class="form-group">
+                            <p>End date</p>
+                            <input type="date" class="form-control" id="wsd-1">
+                        </div>
+                        <div class="remove-wott btn btn-danger">X</div>
                     </div>
                 </div>
             </section>
             <section class="view-results">
-
+                <p>Foo</p>
+                <div class="progress"> 
+                    <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%"> 
+                    </div> 
+                </div>
+                <p>Bar</p>
+                <div class="progress"> 
+                    <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%"> 
+                    </div> 
+                </div>
+                <p>Baz</p>
+                <div class="progress"> 
+                    <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%"> 
+                    </div> 
+                </div>
             </section>
         </div>
     </body>
